@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Planet
   - BlackHole
+  - Asteroid
+  - Sun
   layers:
   - Default
   - TransparentFX

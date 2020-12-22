@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class GravitationalPull : MonoBehaviour
 {
+    //Settings
+    public string[] pullTags;
+    public bool pullEverything;
+    public bool debugging;
+    //This object
     Rigidbody2D body;
     Vector2 position;
+    //Temps
+    private List<GameObject> targetObjects;
 
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         position = gameObject.transform.position;
+      
     }
 
     void Update()
@@ -21,15 +29,37 @@ public class GravitationalPull : MonoBehaviour
         }
     }
 
+
     GameObject[] GetAllObjectsProneToGravitationalPull()
     {
         List<GameObject> objects = new List<GameObject>();
-        string[] tags = { "Player", "Planet", "BlackHole" };
-        foreach(var tag in tags)
+        targetObjects = new List<GameObject>();
+
+        if (pullEverything)
+        {
+            foreach (var o in FindObjectsOfType<Rigidbody2D>())
+            {
+                targetObjects.Add(o.gameObject);
+            }
+        }
+        else
+        {
+            if (pullTags.Length == 0)
+                Debug.LogWarning("Pull Tags is empty");
+            foreach(var o in GameObject.FindGameObjectsWithTag(tag))
+            {
+                targetObjects.Add(o);
+            }
+           
+        }
+        
+        
+        foreach(var tag in pullTags)
         {
             foreach(var o in GameObject.FindGameObjectsWithTag(tag))
             {
-                objects.Add(o);
+                if(o != gameObject)
+                    objects.Add(o);
             }
         }
         return objects.ToArray();
@@ -45,8 +75,8 @@ public class GravitationalPull : MonoBehaviour
         Vector2 forceVector = new Vector2();
         forceVector.x = -(Mathf.Cos(angle) * f);
         forceVector.y = -(Mathf.Sin(angle) * f);
-
-        Debug.Log("Pulling " + obj.name + " with vector: " + forceVector + " | Angle: " + angle );
+        if(debugging)
+            Debug.Log("Pulling " + obj.name + " with vector: " + forceVector + " | Angle: " + angle );
         objBody.AddForce(forceVector);
     }
 

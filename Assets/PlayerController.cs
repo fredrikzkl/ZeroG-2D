@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Transform startPos;
+    public Vector2 startPos;
 
     public float maxPower = 110f;
     public float clickCloseFactor = 15f;
@@ -14,19 +14,25 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        startPos = gameObject.transform.position;
         body = gameObject.GetComponent<Rigidbody2D>();
         Reset();
     }
 
     void Reset()
     {
-        gameObject.transform.position = startPos.transform.position;
+        gameObject.transform.position = startPos;
         body.velocity = Vector2.zero;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButtonDown("Horizontal"))
+        {
+            Debug.Log("Horitonzal");
+        }
+
         //Reset
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -38,6 +44,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             body.velocity = Vector2.zero;
+            return;
         }
 
 
