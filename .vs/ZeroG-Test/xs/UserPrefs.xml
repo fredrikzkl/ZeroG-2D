@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{9EF2C77B-393E-9441-3293-79F2F4969922}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/AsteroidController.cs">
+    <Files>
+      <File FileName="Assets/PlayerController.cs" Line="42" Column="1" />
+      <File FileName="Assets/GravitationalPull.cs" Line="35" Column="26" />
+      <File FileName="Assets/AstroidController.cs" Line="16" Column="37" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ZeroG-Test" expanded="True">
+            <Node name="Assets" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d0f8f2c9-0b8b-415d-b03f-794f439ff5ed" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
